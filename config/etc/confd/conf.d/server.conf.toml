@@ -1,0 +1,6 @@
+[template]
+keys = [
+  "/vhost"
+]
+src = "server.conf.tmpl"
+dest = "/etc/nginx/server.conf"

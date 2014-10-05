@@ -1,0 +1,36 @@
+# /etc/nginx/server.conf
+
+server {
+    listen [::]:5000 ipv6only=off;
+    server_name localhost;
+    root /srv/http;
+
+    more_set_headers "X-Frame-Options: DENY";
+    more_set_headers "Access-Control-Allow-Origin: https://{{ .vhost }}";
+
+    location = / {
+        return 301 https://{{ .vhost }}/up/;
+    }
+
+    location = /up/list {
+        auth_basic "Restricted";
+        auth_basic_user_file /usr/local/etc/nginx/.htpasswd;
+        proxy_pass http://127.0.0.1:8000;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    location /up {
+        auth_basic "Restricted";
+        auth_basic_user_file /usr/local/etc/nginx/.htpasswd;
+    }
+
+    location / {
+        limit_except GET {
+            auth_basic "Restricted";
+            auth_basic_user_file /usr/local/etc/nginx/.htpasswd;
+            proxy_pass http://127.0.0.1:8000;
+        }
+
+        root /srv/uploads;
+    }
+}

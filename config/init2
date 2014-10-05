@@ -1,0 +1,7 @@
+#!/bin/sh
+
+touch /usr/local/etc/nginx/.htpasswd
+chown www-data:www-data /usr/local/etc/nginx/.htpasswd
+chmod 640 /usr/local/etc/nginx/.htpasswd
+
+exec /init

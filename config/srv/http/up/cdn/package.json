@@ -1,0 +1,24 @@
+{
+    "name": "blueimp-cdn",
+    "version": "1.0.0",
+    "title": "blueimp Content Delivery Network",
+    "homepage": "https://github.com/blueimp/cdn",
+    "author": {
+        "name": "Sebastian Tschan",
+        "url": "https://blueimp.net"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/blueimp/cdn.git"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://www.opensource.org/licenses/MIT"
+        }
+    ],
+    "devDependencies": {
+        "uglify-js": "2.3.6",
+        "less": "1.4.0"
+    }
+}
