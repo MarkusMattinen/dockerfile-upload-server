@@ -1,5 +1,5 @@
 # upload server, nginx, etcd registration, confd and supervisord on trusty
-FROM markusma/nginx-etcd:trusty
+FROM markusma/nginx-etcdregister:1.5.13
 
 RUN apt-add-repository ppa:chris-lea/node.js
 
