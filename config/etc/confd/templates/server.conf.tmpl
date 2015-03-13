@@ -6,10 +6,10 @@ server {
     root /srv/http;
 
     more_set_headers "X-Frame-Options: DENY";
-    more_set_headers "Access-Control-Allow-Origin: https://{{ .vhost }}";
+    more_set_headers "Access-Control-Allow-Origin: https://{{ getenv "VHOST" }}";
 
     location = / {
-        return 301 https://{{ .vhost }}/up/;
+        return 301 https://{{ getenv "VHOST" }}/up/;
     }
 
     location = /up/list {
