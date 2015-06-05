@@ -1,7 +1,7 @@
 # upload server, nginx, etcd registration, confd and supervisord on trusty
 FROM markusma/nginx-etcdregister:1.7
 
-RUN apt-add-repository ppa:chris-lea/node.js
+RUN curl -sL https://deb.nodesource.com/setup | bash -
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends nodejs imagemagick build-essential libpcre3-dev libssl-dev \
